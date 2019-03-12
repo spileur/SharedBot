@@ -17,7 +17,7 @@ module.exports = (client) => {
                 if (msg.id === messageRuleID && !member.roles.exists("id", roleMemberID)){
                     member.addRole(guild.roles.get(roleMemberID));
                     if((guild.memberCount-1) <= 100){
-                        member.addRole(guild.roles.find(role => role.name === "Vénéran"));
+                        member.addRole(guild.roles.find(role => role.name === "Vétéran"));
                     }
                     member.send("Hey, Bienvenue sur le discord de ShareCode !\n" +
                         "Je m'appel "+client.user.username+" et je suis à ta disposition. Tu peux faire `!help` dans "+guild.channels.get(commandChannelID)+" pour afficher la liste des commands.\n" +
