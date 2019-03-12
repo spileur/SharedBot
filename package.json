@@ -1,0 +1,24 @@
+{
+  "name": "sharedcode-bot",
+  "version": "v1.0.1",
+  "description": "discord bot for SharedCode",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.4.2",
+    "enmap": "^4.6.5",
+    "ffmpeg-binaries": "^4.0.0",
+    "fortnite": "^4.1.1",
+    "jimp": "^0.6.0",
+    "moment": "^2.23.0",
+    "moment-duration-format": "^2.2.2",
+    "mongoose": "^5.4.2",
+    "opusscript": "0.0.6",
+    "weather-js": "^2.0.0",
+    "youtube-search": "^1.1.4",
+    "ytdl-core": "^0.28.3"
+  }
+}
