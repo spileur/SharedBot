@@ -21,7 +21,7 @@ module.exports = (client) => {
                     }
                     member.send("Hey, Bienvenue sur le discord de ShareCode !\n" +
                         "Je m'appel "+client.user.username+" et je suis à ta disposition. Tu peux faire `!help` dans "+guild.channels.get(commandChannelID)+" pour afficher la liste des commands.\n" +
-                        "À  bientôt sur le discord :grinning:");
+                        "À bientôt sur le discord :grinning:");
                     let joinMessage = new Discord.RichEmbed()
                         .setColor('#04a80b')
                         .setAuthor(member.user.username, member.user.avatarURL)
