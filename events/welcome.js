@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 
 module.exports = (client) => {
 
-    let messageRuleID = '554749863162544134';
+    let messageRuleID = '555452549306515456';
     let roleMemberID = '554379619063693315';
     let commandChannelID = '554705911697113124';
     let joinChannelID = '554440221949952010';
