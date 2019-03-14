@@ -14,7 +14,7 @@ module.exports = (client) => {
             let message = channel.fetchMessage(event.d.message_id).then(msg => {
                 let member = msg.guild.members.get(event.d.user_id);
                 let guild = msg.guild;
-                if (msg.id === messageRuleID && !member.roles.exists("id", roleMemberID)){
+                if (msg.id === messageRuleID && !member.roles.some(role => role.id === roleMemberID)){
                     member.addRole(guild.roles.get(roleMemberID));
                     if((guild.memberCount-1) <= 100){
                         member.addRole(guild.roles.find(role => role.name === "Vétéran"));
@@ -37,8 +37,8 @@ module.exports = (client) => {
         let guild = member.guild;
         let leaveMessage = new Discord.RichEmbed()
             .setColor('#e70c0c')
-            .setAuthor(user.username, user.avatarURL)
-            .setDescription("**"+user.username+"#"+user.discriminator+"** a quitter le serveur. À  bientôt !")
+            .setAuthor(member.user.username, member.user.avatarURL)
+            .setDescription("**"+member.user.username+"#"+member.user.discriminator+"** a quitter le serveur. À  bientôt !")
             .setTimestamp(new Date());
         guild.channels.get(joinChannelID).send(leaveMessage);
     });
