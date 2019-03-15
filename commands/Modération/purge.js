@@ -6,7 +6,7 @@ exports.run = (client, message, args) =>{
         if(num > 0 && num < 100){
             message.channel.bulkDelete(1+num, true).then((msg) => {
                 message.channel.send(new Discord.RichEmbed()
-                    .setTitle(num + " messages ont été supprimés :wastebasket:"));
+                    .setTitle(num + " messages ont été supprimé :wastebasket:"));
             });
         }else if(num < 0) {
             message.channel.send("Je ne sais pas effacer un nombre négatif de message :smirk:").then((value) => {
