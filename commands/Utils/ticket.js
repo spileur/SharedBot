@@ -6,7 +6,7 @@ exports.run = (client, message, args) =>{
 
     const reason = message.content.split(" ").slice(1).join(" ");
     if (!message.guild.roles.exists("name", "Support")) return message.channel.send(":x: Le rôle `Support` est introuvable. Merci de contacter l'administrateur pour résoudre cette erreur !");
-    if (message.guild.channels.exists("name", "ticket-" + message.author.id)) return message.channel.send(`:x: Tu as déja un ticket \`d'ouvert\``);
+    if (message.guild.channels.exists("name", "ticket-" + message.author.id)) return message.channel.send(`:x: Tu as déjà un ticket ouvert`);
     message.guild.createChannel(`ticket-${message.author.id}`, "text", [{
         id: message.guild.id,
         deny: ['READ_MESSAGES']

@@ -4,10 +4,10 @@
     "serverID" : "554374405619449856",
     "byPassPermission" : ["124572091944140800"],
     "bdd" : {
-        "url" : "mongodb-spileur.alwaysdata.net",
-        "user" : "spileur_sharecode",
-        "password" : "m4BZ7F33x3xdm7PA",
-        "database" : "spileur_sharecode"
+        "url" : "sharedcode-uwr0a.gcp.mongodb.net",
+        "user" : "sharecodebot",
+        "password" : "Zk6DfWuBrNgNM0Mj",
+        "database" : "sharedcodebot"
     },
     "api" : {
         "youtube-api" : "AIzaSyCy837MIk2s4_93rPqXleF4ixMB6A2RkbE"
