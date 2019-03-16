@@ -37,7 +37,6 @@ exports.run = (client, message, args) =>{
 };
 
 exports.kick = function (client, message, target, modo, reason){
-    client.connectDatabase(client, mongoose);
     Sanction.findOne({
         userID: target.user.id,
         guildID: message.guild.id,
@@ -55,7 +54,7 @@ exports.kick = function (client, message, target, modo, reason){
             reason: (reason)?reason:null,
             finish: false
         });
-        sanction.save().then(mongoose.disconnect());
+        sanction.save().then();
         let embed = new Discord.RichEmbed()
             .setColor("#ff0705")
             .setTitle(":hammer:  **Vous avez été expulsé**");

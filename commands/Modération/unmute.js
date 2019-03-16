@@ -27,7 +27,6 @@ exports.run = (client, message, args) =>{
 };
 
 exports.unmute = function(client, message, target, modo){
-    client.connectDatabase(client, mongoose);
     let roleMuted = target.guild.roles.find((role) => role.name === "Muted");
     if(roleMuted === undefined){
         message.channel.send(":x: Le role `Muted` est introuvable sur le serveur").then((value) => {
@@ -44,7 +43,7 @@ exports.unmute = function(client, message, target, modo){
     }, function(err, docs){
         if(!docs || docs.length <= 0) return message.channel.send(":x: Le membre n'est pas mute");
         docs[0].finish = true;
-        docs[0].save(mongoose.disconnect());
+        docs[0].save();
         target.removeRole(roleMuted).then(() => {
             message.delete();
             message.channel.send(`:scales: ${target} a été unmute par ${modo}`);

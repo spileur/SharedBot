@@ -45,7 +45,6 @@ exports.run = (client, message, args) =>{
 };
 
 exports.tempban = function (client, message, target, modo, time, reason){
-    client.connectDatabase(client, mongoose);
     Sanction.findOne({
         userID: target.user.id,
         guildID: message.guild.id,
@@ -63,7 +62,7 @@ exports.tempban = function (client, message, target, modo, time, reason){
             reason: (reason)?reason:null,
             finish: false
         });
-        sanction.save().then(mongoose.disconnect());
+        sanction.save().then();
         let embed = new Discord.RichEmbed()
             .setColor("#ff0705")
             .setTitle(":hammer:  **Vous avez été ban**");

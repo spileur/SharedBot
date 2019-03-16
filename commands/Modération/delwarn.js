@@ -10,7 +10,6 @@ exports.run = (client, message, args) =>{
         let target = message.guild.members.get(args[0].replace(/[\\<>@#&!]/g, ""));
         args.shift();
         if(target){
-            client.connectDatabase(client, mongoose);
             if(args[0].toLowerCase() === "all") {
                 Warn.deleteMany({
                     userID: target.user.id,
@@ -18,7 +17,6 @@ exports.run = (client, message, args) =>{
                 }, function (err) {
                     if (err) console.log(err);
                     message.channel.send(":scales: Tous les warns de " + target + " ont été supprimé par "+message.member);
-                    mongoose.disconnect();
                 });
             }else{
                 let i = parseInt(args[0]);
@@ -41,7 +39,6 @@ exports.run = (client, message, args) =>{
                                 if(err)console.log(err);
                                 message.delete();
                                 message.channel.send(":scales: Un warn de " + target + " a été supprimé par "+message.member);
-                                mongoose.disconnect();
                             });
 
                         }else{

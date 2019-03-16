@@ -31,7 +31,6 @@ exports.run = (client, message, args) =>{
 
 
 exports.warn = function (client, message, target, modo, reason){
-    client.connectDatabase(client, mongoose);
     const warn = new Warn({
         userID: target.user.id,
         moderatorID: modo.user.id,
@@ -65,7 +64,6 @@ exports.warn = function (client, message, target, modo, reason){
                 .addField("ID", docs[0]._id, true)
                 .setTimestamp(new Date());
             target.user.send(embed).catch((error) => {});
-            mongoose.disconnect();
         });
     }).catch((error) => {
         message.channel.send(":x: Une erreur s'est produit le membre n'a pas pu être averti").then((value) => {

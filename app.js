@@ -3,6 +3,7 @@ const path = require("path");
 const Enmap = require("enmap");
 const Discord = require("discord.js");
 const client = new Discord.Client();
+const mongoose = require('mongoose');
 
 client.config = require("./config.json");
 client.commands = new Enmap();
@@ -11,6 +12,8 @@ client.modoLogID = '554436602827374612';
 
 console.log("Connnection au serveur discord...");
 client.on('ready', async () => {
+
+    connectDatabase(client, mongoose);
 
     fs.readdir(path.join(__dirname, "commands"), (err, files) => {
         if (err) return console.error(err);
@@ -41,8 +44,9 @@ function registerCommand(pathFile, files) {
 
 }
 
-client.connectDatabase = function connectDatabase(client, mongoose) {
+function connectDatabase(client, mongoose) {
     mongoose.connect("mongodb+srv://"+client.config.bdd.user+":"+client.config.bdd.password+"@"+client.config.bdd.url+"/"+client.config.bdd.database, { useNewUrlParser: true }).then();
+    client.mongoose = mongoose;
 };
 
 const token = "NTU0NDMyMjc0NzY3MjgyMTg2.D2cmAg.R_NA97YdRAxBzSQuW0CeTPeL6lw";

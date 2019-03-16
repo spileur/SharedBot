@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+
 const Discord = require("discord.js");
 const Sanction = require('../../models/sanction');
 const moment = require('moment');
@@ -37,7 +37,6 @@ exports.run = (client, message, args) =>{
 };
 
 exports.ban = function (client, message, target, modo, reason){
-    client.connectDatabase(client, mongoose);
     Sanction.findOne({
         userID: target.user.id,
         guildID: message.guild.id,
@@ -55,7 +54,7 @@ exports.ban = function (client, message, target, modo, reason){
             reason: (reason)?reason:null,
             finish: false
         });
-        sanction.save().then(mongoose.disconnect());
+        sanction.save().then();
         let embed = new Discord.RichEmbed()
             .setColor("#ff0705")
             .setTitle(":hammer:  **Vous avez été ban**");

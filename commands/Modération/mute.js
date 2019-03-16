@@ -9,6 +9,7 @@ exports.run = (client, message, args) =>{
         let target = message.guild.members.get(args[0].replace(/[\\<>@#&!]/g, ""));
         args.shift();
         if(target) {
+            console.log(target.highestRole.calculatedPosition+" < "+ message.member.highestRole.calculatedPosition);
             if(target.highestRole.calculatedPosition < message.member.highestRole.calculatedPosition){
                 let reason = (args.length > 0)?args.join(" "):undefined;
                 exports.mute(client, message, target, message.member, reason);
@@ -37,7 +38,6 @@ exports.run = (client, message, args) =>{
 };
 
 exports.mute = function mute(client, message, target, modo, reason){
-    client.connectDatabase(client, mongoose);
     let roleMuted = target.guild.roles.find((role) => role.name === "Muted");
     if(roleMuted === undefined){
         message.channel.send(":x: Le role `Muted` est introuvable sur le serveur").then((value) => {
@@ -63,8 +63,8 @@ exports.mute = function mute(client, message, target, modo, reason){
             reason: (reason)?reason:null,
             finish: false
         });
-        sanction.save().then(mongoose.disconnect());
-        target.addRole(roleMuted , reason).then(() => {
+        sanction.save().then();
+        target.addRole(roleMuted, reason).then(() => {
             message.delete();
             message.channel.send(`:hammer: ${target} a été mute par ${message.member}` + ((reason)?` pour : `+"`"+reason+"`":''));
             let log = new Discord.RichEmbed()

@@ -20,7 +20,6 @@ exports.run = (client, message, args) =>{
 };
 
 exports.unban = function(client, message, target, modo){
-    client.connectDatabase(client, mongoose);
     Sanction.find({
         userID: target,
         guildID: message.guild.id,
@@ -29,7 +28,7 @@ exports.unban = function(client, message, target, modo){
     }, function(err, docs){
         if(!docs || docs.length <= 0) return message.channel.send(":x: Le membre n'est pas ban");
         docs[0].finish = true;
-        docs[0].save(mongoose.disconnect());
+        docs[0].save();
         message.guild.unban(target).then(() => {
             message.delete();
             message.channel.send(`:scales: ${target} a été unban par ${modo}`);

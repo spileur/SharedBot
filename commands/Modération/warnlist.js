@@ -10,8 +10,6 @@ exports.run = (client, message, args) =>{
         let target = message.guild.members.get(args[0].replace(/[\\<>@#&!]/g, ""));
         args.shift();
         if(target){
-            client.connectDatabase(client, mongoose);
-
             Warn.find({
                 userID: target.user.id,
                 guildID: message.guild.id
@@ -40,7 +38,6 @@ exports.run = (client, message, args) =>{
                 });
                 embed.addField("Les 10 derniers avertissements", warnsText);
                 message.channel.send(embed);
-                mongoose.disconnect();
             });
         }else{
             message.channel.send(":x: Le membre est introuvable").then((value) => {

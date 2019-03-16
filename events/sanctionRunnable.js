@@ -32,19 +32,16 @@ module.exports = (client) => {
     });
 
     setInterval(function () {
-        client.connectDatabase(client, mongoose);
         let nowTime = Date.now();
         Sanction.find({
             finish: false
         }, function (err, docs) {
             if(!docs)return;
-            mongoose.disconnect();
             docs.forEach((doc) => {
                 if(doc.duration !== -1){
                     if(doc.date.getTime()+doc.duration <= nowTime){
                         doc.finish = true;
-                        client.connectDatabase(client, mongoose);
-                        doc.save(mongoose.disconnect());
+                        doc.save();
                         if(client.guilds.get(doc.guildID)){
                             let guild = client.guilds.get(doc.guildID);
                             if(doc.type === "mute" && guild.members.get(doc.userID)){
