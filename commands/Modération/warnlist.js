@@ -40,9 +40,8 @@ exports.run = (client, message, args) =>{
                 });
                 embed.addField("Les 10 derniers avertissements", warnsText);
                 message.channel.send(embed);
-                mongoose.connection.close();
+                mongoose.disconnect();
             });
-            mongoose.disconnect();
         }else{
             message.channel.send(":x: Le membre est introuvable").then((value) => {
                 message.delete(10000);

@@ -65,15 +65,14 @@ exports.warn = function (client, message, target, modo, reason){
                 .addField("ID", docs[0]._id, true)
                 .setTimestamp(new Date());
             target.user.send(embed).catch((error) => {});
-            mongoose.connection.close();
+            mongoose.disconnect();
         });
     }).catch((error) => {
-        message.channel.send(":x: Une erreur s'est produit le membre n'a pas pu être avertie").then((value) => {
+        message.channel.send(":x: Une erreur s'est produit le membre n'a pas pu être averti").then((value) => {
             message.delete(10000);
             value.delete(10000);
         });
     });
-    mongoose.disconnect();
 };
 
 exports.info = {

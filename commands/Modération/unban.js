@@ -28,10 +28,8 @@ exports.unban = function(client, message, target, modo){
         finish: false
     }, function(err, docs){
         if(!docs || docs.length <= 0) return message.channel.send(":x: Le membre n'est pas ban");
-        docs.forEach((doc) => {
-            doc.finish = true;
-            doc.save();
-        });
+        docs[0].finish = true;
+        docs[0].save(mongoose.disconnect());
         message.guild.unban(target).then(() => {
             message.delete();
             message.channel.send(`:scales: ${target} a été unban par ${modo}`);
@@ -48,7 +46,6 @@ exports.unban = function(client, message, target, modo){
             });
         });
     });
-    mongoose.disconnect();
 };
 
 exports.info = {

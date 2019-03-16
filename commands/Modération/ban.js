@@ -55,8 +55,7 @@ exports.ban = function (client, message, target, modo, reason){
             reason: (reason)?reason:null,
             finish: false
         });
-        sanction.save().then();
-        mongoose.disconnect();
+        sanction.save().then(mongoose.disconnect());
         let embed = new Discord.RichEmbed()
             .setColor("#ff0705")
             .setTitle(":hammer:  **Vous avez été ban**");

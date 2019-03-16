@@ -63,7 +63,7 @@ exports.tempban = function (client, message, target, modo, time, reason){
             reason: (reason)?reason:null,
             finish: false
         });
-        sanction.save().then();
+        sanction.save().then(mongoose.disconnect());
         let embed = new Discord.RichEmbed()
             .setColor("#ff0705")
             .setTitle(":hammer:  **Vous avez été ban**");
@@ -91,7 +91,6 @@ exports.tempban = function (client, message, target, modo, time, reason){
             });
         });
     });
-    mongoose.disconnect();
 };
 
 function getTemps(temps){

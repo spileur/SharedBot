@@ -38,11 +38,13 @@ module.exports = (client) => {
             finish: false
         }, function (err, docs) {
             if(!docs)return;
+            mongoose.disconnect();
             docs.forEach((doc) => {
                 if(doc.duration !== -1){
                     if(doc.date.getTime()+doc.duration <= nowTime){
                         doc.finish = true;
-                        doc.save();
+                        client.connectDatabase(client, mongoose);
+                        doc.save(mongoose.disconnect());
                         if(client.guilds.get(doc.guildID)){
                             let guild = client.guilds.get(doc.guildID);
                             if(doc.type === "mute" && guild.members.get(doc.userID)){
@@ -60,6 +62,5 @@ module.exports = (client) => {
                 }
             });
         });
-        mongoose.disconnect();
     }, 5000);
 };

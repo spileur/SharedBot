@@ -71,7 +71,7 @@ exports.tempmute = function (client, message, target, modo, time, reason){
             reason: (reason)?reason:null,
             finish: false
         });
-        sanction.save().then();
+        sanction.save().then(mongoose.disconnect());
         target.addRole(roleMuted , reason).then(() => {
             message.delete();
             message.channel.send(`:hammer: ${target} a été mute par ${message.member}` + " pendant " + moment.duration(time, "milliseconds").format("y [ans], w [semaines], d [jours], h [heures], m [minutes], s [secondes]", {largest: 1}) + ((reason)?` pour : `+"`"+reason+"`":''));
@@ -99,7 +99,6 @@ exports.tempmute = function (client, message, target, modo, time, reason){
             });
         });
     });
-    mongoose.disconnect();
 };
 
 function getTemps(temps){

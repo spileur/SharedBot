@@ -18,7 +18,7 @@ exports.run = (client, message, args) =>{
                 }, function (err) {
                     if (err) console.log(err);
                     message.channel.send(":scales: Tous les warns de " + target + " ont été supprimé par "+message.member);
-                    mongoose.connection.close();
+                    mongoose.disconnect();
                 });
             }else{
                 let i = parseInt(args[0]);
@@ -41,7 +41,7 @@ exports.run = (client, message, args) =>{
                                 if(err)console.log(err);
                                 message.delete();
                                 message.channel.send(":scales: Un warn de " + target + " a été supprimé par "+message.member);
-                                mongoose.connection.close();
+                                mongoose.disconnect();
                             });
 
                         }else{
@@ -59,7 +59,6 @@ exports.run = (client, message, args) =>{
                 }
 
             }
-            mongoose.disconnect();
         }else{
             message.channel.send(":x: Le membre est introuvable").then((value) => {
                 message.delete(10000);

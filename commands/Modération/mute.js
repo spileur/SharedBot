@@ -63,7 +63,7 @@ exports.mute = function mute(client, message, target, modo, reason){
             reason: (reason)?reason:null,
             finish: false
         });
-        sanction.save().then();
+        sanction.save().then(mongoose.disconnect());
         target.addRole(roleMuted , reason).then(() => {
             message.delete();
             message.channel.send(`:hammer: ${target} a été mute par ${message.member}` + ((reason)?` pour : `+"`"+reason+"`":''));
@@ -91,7 +91,6 @@ exports.mute = function mute(client, message, target, modo, reason){
             });
         });
     });
-    mongoose.disconnect();
 };
 
 
