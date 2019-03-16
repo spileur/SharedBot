@@ -37,6 +37,7 @@ module.exports = (client) => {
         Sanction.find({
             finish: false
         }, function (err, docs) {
+            if(!docs)return;
             docs.forEach((doc) => {
                 if(doc.duration !== -1){
                     if(doc.date.getTime()+doc.duration <= nowTime){
