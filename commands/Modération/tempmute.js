@@ -75,7 +75,7 @@ exports.tempmute = function (client, message, target, modo, time, reason){
             message.delete();
             message.channel.send(`:hammer: ${target} a été mute par ${message.member}` + " pendant " + moment.duration(time, "milliseconds").format("y [ans], w [semaines], d [jours], h [heures], m [minutes], s [secondes]", {largest: 1}) + ((reason)?` pour : `+"`"+reason+"`":''));
             let log = new Discord.RichEmbed()
-                .setColor("#ff5900")
+                .setColor("#ff810c")
                 .setAuthor("TEMPMUTE | "+target.user.username+"#"+target.user.discriminator, target.user.avatarURL);
             if(reason) log.addField("Raison", (reason)?reason:"Aucune");
             log.addField("Modérateur", modo.displayName, true)
@@ -83,7 +83,7 @@ exports.tempmute = function (client, message, target, modo, time, reason){
                 .setTimestamp(new Date());
             message.guild.channels.get(client.modoLogID).send(log);
             let embed = new Discord.RichEmbed()
-                .setColor("#ff5900")
+                .setColor("#ff810c")
                 .setTitle(":hammer:  **Vous avez été mute**");
             if(reason) embed.addField("Raison", (reason)?reason:"Aucune");
             embed.addField("Serveur", message.guild.name, true)
