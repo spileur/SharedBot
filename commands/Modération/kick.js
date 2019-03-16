@@ -81,6 +81,7 @@ exports.kick = function (client, message, target, modo, reason){
             });
         });
     });
+    mongoose.disconnect();
 };
 
 

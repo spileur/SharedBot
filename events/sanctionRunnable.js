@@ -59,5 +59,6 @@ module.exports = (client) => {
                 }
             });
         });
+        mongoose.disconnect();
     }, 5000);
 };

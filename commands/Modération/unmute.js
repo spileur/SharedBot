@@ -63,7 +63,7 @@ exports.unmute = function(client, message, target, modo){
             });
         });
     });
-
+    mongoose.disconnect();
 };
 
 exports.info = {

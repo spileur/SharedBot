@@ -99,6 +99,7 @@ exports.tempmute = function (client, message, target, modo, time, reason){
             });
         });
     });
+    mongoose.disconnect();
 };
 
 function getTemps(temps){

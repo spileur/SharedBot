@@ -73,6 +73,7 @@ exports.warn = function (client, message, target, modo, reason){
             value.delete(10000);
         });
     });
+    mongoose.disconnect();
 };
 
 exports.info = {

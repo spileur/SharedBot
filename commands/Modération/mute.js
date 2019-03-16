@@ -91,6 +91,7 @@ exports.mute = function mute(client, message, target, modo, reason){
             });
         });
     });
+    mongoose.disconnect();
 };
 
 

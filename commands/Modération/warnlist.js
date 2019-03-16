@@ -42,6 +42,7 @@ exports.run = (client, message, args) =>{
                 message.channel.send(embed);
                 mongoose.connection.close();
             });
+            mongoose.disconnect();
         }else{
             message.channel.send(":x: Le membre est introuvable").then((value) => {
                 message.delete(10000);
