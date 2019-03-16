@@ -45,7 +45,7 @@ exports.warn = function (client, message, target, modo, reason){
             guildID: message.guild.id
         }, function (err, docs) {
             docs.reverse();
-            message.channel.send(`:warning: ${target} à été averti par ${modo}` + ((reason)?` pour : `+"`"+reason+"`":'') + " ("+docs.length+" "+((docs.length > 1)?"warns":"warn")+")");
+            message.channel.send(`:warning: ${target} a été averti par ${modo}` + ((reason)?` pour : `+"`"+reason+"`":'') + " ("+docs.length+" "+((docs.length > 1)?"warns":"warn")+")");
             let log = new Discord.RichEmbed()
                 .setColor("#ffe500")
                 .setAuthor("WARN | "+target.user.username+"#"+target.user.discriminator, target.user.avatarURL);

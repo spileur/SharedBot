@@ -66,7 +66,7 @@ exports.kick = function (client, message, target, modo, reason){
         target.user.send(embed).catch((error) => {});
         target.kick(reason).then(() => {
             message.delete();
-            message.channel.send(`:hammer: ${target} à été expulsé par ${message.member}` + ((reason)?` pour : `+"`"+reason+"`":''));
+            message.channel.send(`:hammer: ${target} a été expulsé par ${message.member}` + ((reason)?` pour : `+"`"+reason+"`":''));
             let log = new Discord.RichEmbed()
                 .setColor("#ff0705")
                 .setAuthor("KICK | "+target.user.username+"#"+target.user.discriminator, target.user.avatarURL);

@@ -49,7 +49,7 @@ exports.unmute = function(client, message, target, modo){
         });
         target.removeRole(roleMuted).then(() => {
             message.delete();
-            message.channel.send(`:scales: ${target} à été unmute par ${modo}`);
+            message.channel.send(`:scales: ${target} a été unmute par ${modo}`);
             let log = new Discord.RichEmbed()
                 .setColor("#24ff1f")
                 .setAuthor("UNMUTE | "+target.user.username+"#"+target.user.discriminator, target.user.avatarURL)

@@ -75,7 +75,7 @@ exports.tempban = function (client, message, target, modo, time, reason){
         target.user.send(embed).catch((error) => {});
         target.ban(reason).then(() => {
             message.delete();
-            message.channel.send(`:hammer: ${target} à été ban par ${message.member}` + " pendant " + moment.duration(time, "milliseconds").format("y [ans], w [semaines], d [jours], h [heures], m [minutes], s [secondes]", {largest: 1}) + ((reason)?` pour : `+"`"+reason+"`":''));
+            message.channel.send(`:hammer: ${target} a été ban par ${message.member}` + " pendant " + moment.duration(time, "milliseconds").format("y [ans], w [semaines], d [jours], h [heures], m [minutes], s [secondes]", {largest: 1}) + ((reason)?` pour : `+"`"+reason+"`":''));
             let log = new Discord.RichEmbed()
                 .setColor("#ff1513")
                 .setAuthor("TEMPBAN | "+target.user.username+"#"+target.user.discriminator, target.user.avatarURL);

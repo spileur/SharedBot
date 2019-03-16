@@ -29,7 +29,7 @@ exports.run = (client, message, args) =>{
 
 exports.info = {
     aliases: ["commands"],
-    description: "Listes des commands du bot",
+    description: "Liste des commands du bot",
     usage: "",
     category: "Utils",
     permissions: "",

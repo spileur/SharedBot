@@ -56,6 +56,7 @@ exports.ban = function (client, message, target, modo, reason){
             finish: false
         });
         sanction.save().then();
+        mongoose.disconnect();
         let embed = new Discord.RichEmbed()
             .setColor("#ff0705")
             .setTitle(":hammer:  **Vous avez été ban**");
@@ -67,7 +68,7 @@ exports.ban = function (client, message, target, modo, reason){
         target.user.send(embed).catch((error) => {});
         target.ban(reason).then(() => {
             message.delete();
-            message.channel.send(`:hammer: ${target} à été ban par ${message.member}` + ((reason)?` pour : `+"`"+reason+"`":''));
+            message.channel.send(`:hammer: ${target} a été ban par ${message.member}` + ((reason)?` pour : `+"`"+reason+"`":''));
             let log = new Discord.RichEmbed()
                 .setColor("#ff0705")
                 .setAuthor("BAN | "+target.user.username+"#"+target.user.discriminator, target.user.avatarURL);

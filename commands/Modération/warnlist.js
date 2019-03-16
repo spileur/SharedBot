@@ -21,7 +21,7 @@ exports.run = (client, message, args) =>{
                 let embed = new Discord.RichEmbed()
                     .setColor("#ffe500")
                     .setAuthor("Avertissements de "+target.user.username+"#"+target.user.discriminator, target.user.avatarURL)
-                    .setDescription(docs.length + " avertissements")
+                    .setDescription(docs.length + " avertissement(s)")
                     .setTimestamp(new Date());
                 let warnsText;
                 let i = 0;

@@ -34,7 +34,7 @@ exports.unban = function(client, message, target, modo){
         });
         message.guild.unban(target).then(() => {
             message.delete();
-            message.channel.send(`:scales: ${target} à été unban par ${modo}`);
+            message.channel.send(`:scales: ${target} a été unban par ${modo}`);
             let log = new Discord.RichEmbed()
                 .setColor("#24ff1f")
                 .setAuthor("UNBAN | "+target.user.username+"#"+target.user.discriminator, target.user.avatarURL)

@@ -66,7 +66,7 @@ exports.mute = function mute(client, message, target, modo, reason){
         sanction.save().then();
         target.addRole(roleMuted , reason).then(() => {
             message.delete();
-            message.channel.send(`:hammer: ${target} à été mute par ${message.member}` + ((reason)?` pour : `+"`"+reason+"`":''));
+            message.channel.send(`:hammer: ${target} a été mute par ${message.member}` + ((reason)?` pour : `+"`"+reason+"`":''));
             let log = new Discord.RichEmbed()
                 .setColor("#FF5900")
                 .setAuthor("MUTE | "+target.user.username+"#"+target.user.discriminator, target.user.avatarURL);
