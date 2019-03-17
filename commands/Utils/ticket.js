@@ -21,7 +21,8 @@ exports.run = (client, message, args) =>{
         const embed = new Discord.RichEmbed()
             .setColor("#2D66B8")
             .setAuthor(`Hey ${message.author.username} !`)
-            .setDescription("Merci d'expliquer en détail la raison de ton ticket. Notre équipe de "+supportTeam+" sera là le plus vite possible pour te répondre. \nUne fois que le ticket a été résolu utilise la commande `"+client.config.prefix+"close` pour fermer le ticket.")
+            .setDescription("Merci d'expliquer en détail la raison de ton ticket. Notre équipe de "+supportTeam+" sera là le plus vite possible pour te répondre. \n" +
+                "Une fois que le ticket a été résolu utilise la commande `"+client.config.prefix+"close` pour fermer le ticket.")
             .setTimestamp(new Date());
         channel.send(embed);
     }).catch(console.error);

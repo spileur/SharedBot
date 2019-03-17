@@ -49,9 +49,21 @@ module.exports = (client) => {
                                 let roleMuted = guild.roles.find((role) => role.name === "Muted");
                                 if(roleMuted){
                                     member.removeRole(roleMuted, "tempmute finish");
+                                    let log = new Discord.RichEmbed()
+                                        .setColor("#1dc41d")
+                                        .setAuthor("UNMUTE | "+member.user.username+"#"+member.user.discriminator, member.user.avatarURL)
+                                        .addField("Modérateur", client.user.username, true)
+                                        .setTimestamp(new Date());
+                                    guild.channels.get(client.modoLogID).send(log);
                                 }
                             }else if(doc.type === "ban"){
                                 guild.unban(doc.userID, "tempban finish");
+                                let log = new Discord.RichEmbed()
+                                    .setColor("#1dc41d")
+                                    .setAuthor("UNBAN | "+doc.userID)
+                                    .addField("Modérateur", client.user.username, true)
+                                    .setTimestamp(new Date());
+                                guild.channels.get(client.modoLogID).send(log);
                             }
                         }
 
