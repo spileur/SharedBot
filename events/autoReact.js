@@ -6,7 +6,7 @@ module.exports = (client) => {
 
     client.on('message', async (message) => {
         if(message.channel.type !== "text")return;
-        if(message.channel === pollChannelID){
+        if(message.channel.id === pollChannelID){
             let emojis = message.guild.emojis;
             message.react(emojis.get(likeEmojiID)).then(() => {
                message.react(emojis.get(dislikeEmojiID));
