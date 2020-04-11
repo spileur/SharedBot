@@ -45,12 +45,10 @@ function registerCommand(pathFile, files) {
 }
 
 function connectDatabase(client, mongoose) {
-    mongoose.connect("mongodb+srv://"+client.config.bdd.user+":"+client.config.bdd.password+"@"+client.config.bdd.url+"/"+client.config.bdd.database, { useNewUrlParser: true }).then();
+    mongoose.connect("mongodb+srv://"+client.config.bdd.user+":"+process.env.MONGODB_PASSWORD+"@"+client.config.bdd.url+"/"+client.config.bdd.database, { useNewUrlParser: true }).then();
     client.mongoose = mongoose;
 };
 
-const token = "NTU0NDMyMjc0NzY3MjgyMTg2.D2cmAg.R_NA97YdRAxBzSQuW0CeTPeL6lw";
-
-client.login(token);
+client.login(process.env.TOKEN);
 
 
