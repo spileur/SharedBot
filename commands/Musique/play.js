@@ -26,7 +26,7 @@ exports.run = (client, message, args) => {
         if(!ytdl.validateURL(query)){
             let opts = {
                 maxResults: 1,
-                key: client.config.api["youtube-api"],
+                key: process.env.YOUTUBE_TOKEN,
                 type: 'video'
             };
             ytsearch(query, opts, function (err, results) {
