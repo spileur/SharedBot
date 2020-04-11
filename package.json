@@ -13,6 +13,7 @@
     "fortnite": "^4.1.1",
     "jimp": "^0.6.0",
     "moment": "^2.23.0",
+    "ffmpeg-binaries": "^4.0.0",
     "moment-duration-format": "^2.2.2",
     "mongoose": "^5.4.2",
     "opusscript": "0.0.6",
