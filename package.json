@@ -1,7 +1,7 @@
 {
-  "name": "sharedcode-bot",
+  "name": "shared-bot",
   "version": "v1.0.1",
-  "description": "discord bot for SharedCode",
+  "description": "🤖 SharedBot, est un bot développé avec l'api discord.js. Il dispose de plusieurs fonctionnalités comme la Modération, Musique et du Fun. Il est utilisé sur le discord de SharedCode.",
   "main": "app.js",
   "scripts": {
     "start": "node app.js"
