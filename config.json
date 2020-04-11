@@ -6,10 +6,6 @@
     "bdd" : {
         "url" : "sharedcode-uwr0a.gcp.mongodb.net",
         "user" : "sharecodebot",
-        "password" : "Zk6DfWuBrNgNM0Mj",
         "database" : "sharedcodebot"
-    },
-    "api" : {
-        "youtube-api" : "AIzaSyCy837MIk2s4_93rPqXleF4ixMB6A2RkbE"
     }
 }
