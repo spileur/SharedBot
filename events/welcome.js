@@ -19,7 +19,7 @@ module.exports = (client) => {
                     if((guild.memberCount-1) <= 100){
                         member.addRole(guild.roles.find(role => role.name === "Vétéran"));
                     }
-                    member.send("Hey, Bienvenue sur le discord de ShareCode !\n" +
+                    member.send("Hey, Bienvenue sur le discord de SharedCode !\n" +
                         "Je m'appel "+client.user.username+" et je suis à ta disposition. Tu peux faire `!help` dans "+guild.channels.get(commandChannelID)+" pour afficher la liste des commands.\n" +
                         "À bientôt sur le discord :grinning:");
                     let joinMessage = new Discord.RichEmbed()
